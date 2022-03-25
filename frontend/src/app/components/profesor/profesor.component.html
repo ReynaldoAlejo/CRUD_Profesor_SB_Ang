@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>{{titulo}}</h1>
+  <table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Email</th>
+        <th scope="col">Experiencia</th>
+        <th scope="col">Fecha de nacimiento</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let profesor of profesores">
+        <td>{{profesor.id_profesor}}</td>
+        <td>{{profesor.nombre}}</td>
+        <td>{{profesor.email}}</td>
+        <td>{{profesor.experiencia}} {{experiencia}}</td>
+        <td>{{profesor.fecha_nacimiento | date}}</td>
+        <td>
+
+            <button type="button" name="button" class="btn btn-primary" [routerLink]="['/profesores/form',profesor.id_profesor]" >Editar</button>
+            <button type="button" name="button" class="btn btn-danger" (click)="deleteProfesor(profesor)">Eliminar</button>
+
+
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="container">
+  <button type="button" name="button" class="btn btn-success" [routerLink]="['/profesores/form']" >Registrar profesor</button>
+</div>
